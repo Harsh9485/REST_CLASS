@@ -26,6 +26,12 @@ let posts = [
         username : "veer",
         content : "Hello I me JADU give me sun light I me very hangry"
 
+    },
+    {
+        id : uuidv4(),
+        username : "bob",
+        content : "hi i me bob daki ti ki"
+
     }
 ]
 
