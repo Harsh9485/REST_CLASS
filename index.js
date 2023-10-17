@@ -8,7 +8,7 @@ const {v4 : uuidv4} = require("uuid");
 
 
 app.use(express.urlencoded({extended:true}));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -33,42 +33,42 @@ let posts = [
         content : "hi i me bob daki ti ki"
 
     }
-]
+];
 
 app.listen(port,() => {
     console.log(`server acetivat for this port ${port}`)
-})
+});
 
 app.get("/",(req,res) => {
     res.send("srever is worked")
-})
+});
 
 app.get("/posts",(req,res) => {
     res.render("index.ejs",{posts});
-})
+});
 
 app.get("/posts/new",(req,res) => {
     res.render("new.ejs")
-})
+});
 
 app.get("/posts/:id",(req,res) => {
     let {id} = req.params;
     let post = posts.find((p) => id === p.id);
     res.render("show.ejs",{post});
-})
+});
 
 app.get("/post/:id/edit",(req,res) => {
     let {id} = req.params;
     let post = posts.find((p) => id === p.id);
     res.render("edit.ejs",{post})
-})
+});
 
 app.post("/post",(req,res) => {
     let {username,content} = req.body;
     let id = uuidv4();
     posts.push({id,username,content});
     res.redirect("/posts")
-})
+});
 
 app.patch("/post/:id",(req,res) => {
     let {id} = req.params;
@@ -84,4 +84,4 @@ app.delete("/post/:id",(req,res) =>  {
     let {id} = req.params;
     posts = posts.filter((p) => id !== p.id);
     res.redirect("/posts")
-})
+});
