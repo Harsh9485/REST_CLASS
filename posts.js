@@ -17,4 +17,4 @@ let posts = [
         content: "hi i me bob daki ti ki"
     }
 ];
-exports.posts = posts
+exports.posts = posts;
